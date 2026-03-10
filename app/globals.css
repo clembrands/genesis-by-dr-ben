@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Questrial';
+  src: url('/fonts/Questrial-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hamburg Hand';
+  src: url('/fonts/HamburgHand-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mansory';
+  src: url('/fonts/Mansory-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-sans: 'Questrial', sans-serif;
+  --font-serif: 'Mansory', Georgia, serif;
+  --font-display: 'Hamburg Hand', cursive;
+}
+
+@layer utilities {
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .font-serif {
+    font-family: var(--font-serif);
+    font-weight: 600;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 300;
+  }
+
+  .hover-elevate {
+    position: relative;
+    transition: all 0.3s duration-300;
+  }
+
+  .hover-elevate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .prose {
+    @apply prose-lg;
+  }
+
+  .prose-invert {
+    @apply prose-headings:text-white prose-p:text-white/65 prose-a:text-[#A4906F] prose-strong:text-white/90 prose-blockquote:text-white/50 prose-blockquote:border-[#A4906F]/30 prose-li:text-white/65;
+  }
+
+  .prose-headings {
+    @apply font-serif;
+  }
+
+  .prose-a {
+    @apply text-[#A4906F] no-underline hover:underline;
+  }
+
+  .prose-p {
+    @apply text-white/65 leading-relaxed;
+  }
+
+  .prose-strong {
+    @apply text-white/90;
+  }
+
+  .prose-blockquote {
+    @apply border-l-4 border-[#A4906F]/30 italic text-white/50;
+  }
+
+  .prose-li {
+    @apply text-white/65;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: #383B42;
+  color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+.prose-invert a {
+  @apply text-[#A4906F] no-underline;
+}
+
+.prose-invert a:hover {
+  @apply underline;
+}
